@@ -6,7 +6,7 @@
         <div class="row align-items-center">
             <div class="col-md-12">
                 <div class="title mb-30 d-flex justify-content-between align-items-center">
-                    <h2>{{ $tag->name ?? 'Nova Tag' }}</h2>
+                    <h2>Tags: {{ $tag->name ?? 'Nova Tag' }}</h2>
                     <a href="{{ route('tags.index') }}" class="btn btn-secondary d-flex align-items-center"
                         title="Adicionar Tag">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"

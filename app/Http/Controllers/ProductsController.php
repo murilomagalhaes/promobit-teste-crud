@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProductModel;
+use App\Models\TagModel;
 
 class ProductsController extends Controller
 {
@@ -50,6 +51,7 @@ class ProductsController extends Controller
     {
         return view('product_form', [
             'title' => 'products',
+            'tags' => TagModel::all('id', 'name'),
             'product' => $product
         ]);
     }

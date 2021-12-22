@@ -30,7 +30,7 @@
     </li>
 
     {{-- Produtos --}}
-    <li class="nav-item @if (request()->routeIs('products.index')) active @endif">
+    <li class="nav-item @if (request()->routeIs('products.*')) active @endif">
         <a href="{{ route('products.index') }}">
             <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"

@@ -42,8 +42,9 @@
 
         <div class="card-style-3 mb-30">
             <div class="card-content">
-                <form action="{{route('products.search')}}" class="d-flex">
-                    <input type="text" name="query" class="form-control me-2" placeholder="Buscar produtos" value="{{$query ?? ''}}">
+                <form action="{{ route('products.search') }}" class="d-flex">
+                    <input type="text" name="query" class="form-control me-2" placeholder="Buscar produtos"
+                        value="{{ $query ?? '' }}">
                     <button class="btn" type="submit" title="Buscar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                             class="bi bi-search" viewBox="0 0 16 16">
@@ -70,12 +71,22 @@
                     <tbody>
                         @foreach ($products as $product)
                             <tr>
-                                <td>{{ $tag->id }}</td>
-                                <td>{{ $tag->name }}</td>
+                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>
+                                    <span class="d-flex align-items-center">
+                                        @if($product->tags->count())
+                                            @foreach ($product->tags as $tag)
+                                              <a href="{{route('tags.form', $tag)}}" title="{{$tag->name}}" class="m-1"> <span class="badge bg-primary">#{{ $tag->name }}</span> </a>
+                                            @endforeach
+                                        @endif
+                                    </span>
+                                </td>
                                 <td></td>
                                 <td>
-                                    <a href="{{ route('products.form', $product->id) }}" class="btn text-primary float-end"
-                                        title="Ver/Editar">
+                                    <a href="{{ route('products.form', $product->id) }}"
+                                        class="btn text-primary float-end" title="Ver/Editar">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                             class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
