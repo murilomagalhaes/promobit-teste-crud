@@ -14,7 +14,7 @@
     </li>
 
     {{-- Tags --}}
-    <li class="nav-item @if (request()->routeIs('tags.index')) active @endif">
+    <li class="nav-item @if (request()->routeIs('tags.*')) active @endif">
         <a href="{{ route('tags.index') }}">
             <span class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-tags"

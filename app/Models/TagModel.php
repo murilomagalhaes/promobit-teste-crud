@@ -10,6 +10,8 @@ class TagModel extends Model
     use HasFactory;
 
     protected $table = "tag";
+    protected $guarded = ['id'];
+    public $timestamps = false;
 
     public function products()
     {

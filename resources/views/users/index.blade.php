@@ -18,33 +18,33 @@
     <div class="card-styles">
         <div class="card-style-3 mb-30">
             <div class="card-content">
-                <div class="table-wrapper table-responsive">
-                    <table class="table striped-table">
-                        <thead>
+
+                <table class="table">
+                    <thead>
                         <tr>
-                            <th><h6>Nome</h6></th>
-                            <th><h6>Email</h6></th>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Email</th>
                         </tr>
                         <!-- end table row-->
-                        </thead>
-                        <tbody>
-                        @foreach($users as $user)
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
                             <tr>
-                                <td>
-                                    <p>{{ $user->name }}</p>
-                                </td>
-                                <td>
-                                    <p>{{ $user->email }}</p>
-                                </td>
+                                <td> {{ $user->id }}</td>
+                                <td> {{ $user->name }} </td>
+                                <td> {{ $user->email }} </td>
                             </tr>
                         @endforeach
                         <!-- end table row -->
-                        </tbody>
-                    </table>
-                    <!-- end table -->
+                    </tbody>
+                </table>
+                <!-- end table -->
 
+                <div class="mt-2 w-100 d-flex justify-content-end">
                     {{ $users->links() }}
                 </div>
+
 
             </div>
         </div>

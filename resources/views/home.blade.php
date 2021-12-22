@@ -15,11 +15,26 @@
     </div>
     <!-- ========== title-wrapper end ========== -->
 
-    <div class="card-styles">
-        <div class="card-style-3 mb-30">
-            <div class="card-content">
-                <p>Nada aqui ainda...</p>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card-styles">
+                <div class="card-style-3 mb-30">
+                    <div class="card-content">
+                        X Tags
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card-styles">
+                <div class="card-style-3 mb-30">
+                    <div class="card-content">
+                        Y Produtos
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 @endsection
