@@ -33,7 +33,13 @@ Auth::routes([
 Route::middleware('auth')->group(function () {
 
     // Products routes
-    Route::get('products', [\App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
+    Route::group(['prefix' => 'products'], function () {
+        Route::get('/', [\App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
+        Route::get('search', [\App\Http\Controllers\ProductsController::class, 'search'])->name('products.search');
+        Route::get('edit/{product?}', [\App\Http\Controllers\ProductsController::class, 'form'])->name('products.form');
+        Route::post('store/{product?}', [\App\Http\Controllers\ProductsController::class, 'store'])->name('products.store');
+        Route::delete('destroy/{product}', [\App\Http\Controllers\ProductsController::class, 'destroy'])->name('products.destroy');
+    });
 
     // Tags routes
     Route::group(['prefix' => 'tags'], function () {
