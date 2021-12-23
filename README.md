@@ -1,9 +1,14 @@
 
 # Descrição
-Projeto criado como teste do processo seletivo para Dev PHP Jr na Promobit.
+Projeto criado como teste no processo seletivo para Dev PHP Jr na Promobit.
 
 Repo orignial: 
 [teste-cadastro-produtos](https://github.com/Promobit/teste-cadastro-produtos)
+
+## Principais Techs Utilizadas
+- PHP/Laravel
+- Bootstrap 5
+- MySQL
 
 # Requisitos
 - PHP \^7.4 | \^8.0
@@ -36,7 +41,7 @@ Para construir o relatório de relevância foi utilizado o Eloquent. Com a estru
 
 `TagModel::withCount('products')->orderBy('products_count', 'desc')->get();` 
 
-*Neste caso, o orderBy 'asc' trará os menos relevantes (Com menos produtos atrelados), e 'desc' trará os mais relevantes.*
+*Obs: Neste caso, o orderBy 'asc' trará os menos relevantes (Com menos produtos atrelados), e 'desc' trará os mais relevantes.*
 
 Sem utilizar o Eloquent, a seguinte Query em SQL traria o mesmo resultado.
 
