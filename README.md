@@ -22,9 +22,8 @@ Clone o projeto em um diretório de sua preferência, entre nele, e execute os c
 - `composer install` 
 - `npm install` 
 - `npm run prod` 
-- `php artisan key:generate`
 
-Agora será necessário ajustar os parâmetros do banco de dados no arquivo `.env` da aplicação, e executar `php artisan migrate` para criar a estrutura do banco.
+Agora será necessário criar um arquivo `.env ` de acordo com o `.env.example`, e então ajustar os parâmetros do banco de dados neste arquivo. Após o ajuste, basta executar `php artisan migrate` para criar a estrutura do banco, e `php artisan key:generate`.
 
 # Acessando a Aplicação
 Para acessar a aplicação, basta executar `php artisan serve` para subi-la usando o server nativo do php/laravel. E depois, acesse `http://localhost:8000/` no seu browser favorito.
