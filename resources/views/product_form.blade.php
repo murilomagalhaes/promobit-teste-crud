@@ -42,7 +42,8 @@
 
         <div class="card-style-3 mb-30">
             <div class="card-content">
-                <form>
+                <form action="{{route('products.store', $product ?? null)}}" method="POST">
+                    @csrf
                     <div class="row g-3 align-items-center mb-2">
                         <div class="col-2"><label for="name">Nome: </label></div>
                         <div class="col"><input class="form-control" type="text"
@@ -61,10 +62,10 @@
                     <div class="row g-3 align-items-center mb-2">
                         <div class="col-2"><label for="description">Tags: </label></div>
                         <div class="col">
-                            <select class="form-select px-1 py-2" name="tags" multiple aria-label="multiple select example"
+                            <select class="form-select px-1 py-2" name="tags[]" multiple aria-label="Tags"
                                 name="tags">
                                 @foreach ($tags as $tag)
-                                    <option class="d-inline p-1 mx-1 border rounded" @if ($product->tags->contains($tag)) selected @endif
+                                    <option class="d-inline p-1 mx-1 border rounded" @if (isset($product) && $product->tags->contains($tag)) selected @endif
                                         value="{{ $tag->id }}" style="cursor: pointer">#{{ $tag->name }}</option>
                                 @endforeach
                             </select>
@@ -74,14 +75,14 @@
                     </div>
 
                     <div class="w-100 text-end">
-                        <button class="btn btn-success">Gravar</button>
-                        @if ($product) <button class="btn btn-danger"onclick="document.getElementById('delete-form').submit();">Excluir</button> @endif
+                        <button type="submit" class="btn btn-success">Gravar</button>
+                        @if ($product) <button type="button" class="btn btn-danger"onclick="document.getElementById('delete-form').submit();">Excluir</button> @endif
                     </div>
 
                 </form>
 
                 @if ($product)
-                    <form id="delete-form" action="{{ route('products.destroy', $product) }}">
+                    <form id="delete-form" action="{{ route('products.destroy', $product) }}" method="POST">
                         @csrf
                         @method('DELETE')
                     </form>

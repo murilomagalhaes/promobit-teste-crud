@@ -61,7 +61,7 @@
         {{-- Relatório de Relevancia --}}
         <ul id="ddmenu_1" class="dropdown-nav collapse @if (request()->routeIs('reports.relevance')) show @endif collapse">
             <li>
-                <a class="@if (request()->routeIs('reports.relevance')) text-primary @endif" href="{{route('reports.relevance')}}">Relevancia</a>
+                <a class="@if (request()->routeIs('reports.relevance')) text-primary @endif" href="{{route('reports.relevance')}}">Relevancia de Tags</a>
             </li>
         </ul>
     </li>

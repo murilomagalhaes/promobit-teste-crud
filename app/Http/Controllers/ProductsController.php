@@ -64,13 +64,23 @@ class ProductsController extends Controller
         // Validates product name
         $this->validate(request(), [
             'name' => 'required|max:140',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'tags' => 'required|array'
         ]);
 
         // If product is null, create a new one
-        ProductModel::updateOrCreate(
+        $product = ProductModel::updateOrCreate(
             ['id' => $product->id ?? null],
-            ['name' => request('name')]
+            [
+                'name' => request('name'),
+                'description' => request('description'),
+                'price' => request('price'),
+            ]
         );
+
+        // Update tags on the pivot table
+        $product->tags()->sync(request('tags'));
 
         // Redirect to products page with success message
         return redirect('products')->with('success', 'Produto gravado!');
@@ -81,7 +91,7 @@ class ProductsController extends Controller
      */
     public function destroy(ProductModel $product)
     {
-        if ($product->delete()) {
+        if ($product->tags()->detach() && $product->delete()) {
             return redirect('products')->with('warning', 'Produto excluído!');
         }
 

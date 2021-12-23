@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\TagModel;
 
 class ReportsController extends Controller
 {
@@ -11,6 +11,13 @@ class ReportsController extends Controller
      */
     public function relevance()
     {
-        return view('reports.relevance', ['title' => 'Rel. Relevancia']);
+        $relevance = request('relevance') === 'less' ? 'asc' : 'desc';
+
+        $tags = TagModel::withCount('products')->orderBy('products_count', $relevance)->get();
+
+        return view('reports.relevance', [
+            'title' => 'Rel. Relevancia de Tags',
+            'tags' => $tags,
+        ]);
     }
 }

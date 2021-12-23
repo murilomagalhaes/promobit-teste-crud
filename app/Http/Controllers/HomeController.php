@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductModel;
+use App\Models\TagModel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', ['title' => 'Painel de Controle']);
+        $products_qty = ProductModel::count();
+        $tags_qty = TagModel::count();
+
+        return view('home', [
+            'title' => 'Painel de Controle',
+            'products_qty' => $products_qty,
+            'tags_qty' => $tags_qty,
+        ]);
     }
 }
