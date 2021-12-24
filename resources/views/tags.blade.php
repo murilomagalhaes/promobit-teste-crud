@@ -24,7 +24,7 @@
 
     <div class="card-styles">
 
-        @include('alerts');
+        @include('alerts')
 
         {{-- Search Form --}}
         <div class="card-style-3 mb-30">

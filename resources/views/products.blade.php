@@ -25,7 +25,7 @@
     <div class="card-styles">
 
         {{-- Alerts / Flash Messages --}}
-        @include('alerts');
+        @include('alerts')
 
         {{-- Searcg Form --}}
         <div class="card-style-3 mb-30">

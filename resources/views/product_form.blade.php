@@ -26,7 +26,7 @@
     <div class="card-styles">
 
         {{-- Alertas / Flash messages --}}
-        @include('alerts');
+        @include('alerts')
 
 
         <div class="card-style-3 mb-30">

@@ -25,7 +25,7 @@
     <div class="card-styles">
 
         {{-- Alerts / Flash Messages --}}
-        @include('alerts');
+        @include('alerts')
 
 
         {{-- Tag Form --}}
