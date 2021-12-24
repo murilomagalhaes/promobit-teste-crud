@@ -9,9 +9,7 @@
                     <h2>{{ __('Users') }}</h2>
                 </div>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
     <!-- ========== title-wrapper end ========== -->
 
@@ -19,6 +17,7 @@
         <div class="card-style-3 mb-30">
             <div class="card-content">
 
+                {{-- Users Listing --}}
                 <table class="table">
                     <thead>
                         <tr>
@@ -26,7 +25,6 @@
                             <th>Nome</th>
                             <th>Email</th>
                         </tr>
-                        <!-- end table row-->
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
@@ -36,11 +34,10 @@
                                 <td> {{ $user->email }} </td>
                             </tr>
                         @endforeach
-                        <!-- end table row -->
                     </tbody>
                 </table>
-                <!-- end table -->
 
+                {{-- Pagination --}}
                 <div class="mt-2 w-100 d-flex justify-content-end">
                     {{ $users->links() }}
                 </div>

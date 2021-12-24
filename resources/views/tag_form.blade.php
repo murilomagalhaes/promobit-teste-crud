@@ -16,30 +16,19 @@
                         </svg>
                         <span>Voltar</span>
                     </a>
-
                 </div>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
     <!-- ========== title-wrapper end ========== -->
 
     <div class="card-styles">
 
-
-        @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+        {{-- Alerts / Flash Messages --}}
+        @include('alerts');
 
 
+        {{-- Tag Form --}}
         <div class="card-style-3 mb-30">
             <div class="card-content">
                 <div class="d-flex">

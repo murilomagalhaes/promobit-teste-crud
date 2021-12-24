@@ -18,28 +18,16 @@
                     </a>
                 </div>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
     <!-- ========== title-wrapper end ========== -->
 
     <div class="card-styles">
 
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show mb-30" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+        {{-- Alerts / Flash Messages --}}
+        @include('alerts');
 
-        @if (session('warning'))
-            <div class="alert alert-warning alert-dismissible fade show mb-30" role="alert">
-                {{ session('warning') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
+        {{-- Searcg Form --}}
         <div class="card-style-3 mb-30">
             <div class="card-content">
                 <form action="{{ route('products.search') }}" class="d-flex">
@@ -58,6 +46,8 @@
 
         <div class="card-style-3 mb-30">
             <div class="card-content">
+
+                {{-- Product Listing --}}
                 <table class="table">
                     <thead>
                         <tr>
@@ -102,10 +92,13 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                {{-- Pagination --}}
                 <div class="mt-2 w-100 d-flex justify-content-end">
                     {{ $products->links() }}
                 </div>
             </div>
+
         </div>
     </div>
 @endsection

@@ -9,21 +9,21 @@
                     <h2>Relatórios > Relevancia de Tags</h2>
                 </div>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
     <!-- ========== title-wrapper end ========== -->
 
     <div class="card-styles">
+
+        {{-- Report Filter --}}
         <div class="card-style-3 mb-30">
             <div class="card-content">
                 <form class="d-flex align-items-end">
                     <div class="me-2 w-100">
                         <label for="relevance" class="mb-2">Relevancia</label>
                         <select name="relevance" id="relevance" class="form-select">
-                            <option value="more" @if(request('relevance') === 'more') selected @endif>Mais relevantes</option>
-                            <option value="less" @if(request('relevance') === 'less') selected @endif>Menos relevantes</option>
+                            <option value="more" @if (request('relevance') === 'more') selected @endif>Mais relevantes</option>
+                            <option value="less" @if (request('relevance') === 'less') selected @endif>Menos relevantes</option>
                         </select>
                     </div>
                     <button type="submit" class="btn text-primary" title="Filtrar">
@@ -37,6 +37,7 @@
             </div>
         </div>
 
+        {{-- Report Output --}}
         @if (isset($tags))
             <div class="card-style-3 mb-30">
                 <div class="card-content">
@@ -64,5 +65,6 @@
                 </div>
             </div>
         @endif
+
     </div>
 @endsection

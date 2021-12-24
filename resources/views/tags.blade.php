@@ -18,32 +18,20 @@
                     </a>
                 </div>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
     <!-- ========== title-wrapper end ========== -->
 
     <div class="card-styles">
 
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show mb-30" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+        @include('alerts');
 
-        @if (session('warning'))
-            <div class="alert alert-warning alert-dismissible fade show mb-30" role="alert">
-                {{ session('warning') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
+        {{-- Search Form --}}
         <div class="card-style-3 mb-30">
             <div class="card-content">
-                <form action="{{route('tags.search')}}" class="d-flex">
-                    <input type="text" name="query" class="form-control me-2" placeholder="Buscar Tags" value="{{$query ?? ''}}">
+                <form action="{{ route('tags.search') }}" class="d-flex">
+                    <input type="text" name="query" class="form-control me-2" placeholder="Buscar Tags"
+                        value="{{ $query ?? '' }}">
                     <button class="btn" type="submit" title="Buscar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                             class="bi bi-search" viewBox="0 0 16 16">
@@ -57,6 +45,8 @@
 
         <div class="card-style-3 mb-30">
             <div class="card-content">
+
+                {{-- Tags Listing --}}
                 <table class="table">
                     <thead>
                         <tr>
@@ -88,6 +78,8 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                {{-- Pagination --}}
                 <div class="mt-2 w-100 d-flex justify-content-end">
                     {{ $tags->links() }}
                 </div>

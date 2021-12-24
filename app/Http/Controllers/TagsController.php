@@ -79,6 +79,11 @@ class TagsController extends Controller
      */
     public function destroy(TagModel $tag)
     {
+        if ($tag->products()->count()) {
+            return redirect()->back()->withErrors('Tag não pode ser excluída pois está associada a produtos!');
+        }
+
+
         if ($tag->delete()) {
             return redirect('tags')->with('warning', 'Tag Excluída!');
         }

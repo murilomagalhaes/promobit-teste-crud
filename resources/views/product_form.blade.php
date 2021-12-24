@@ -19,51 +19,49 @@
 
                 </div>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
     <!-- ========== title-wrapper end ========== -->
 
     <div class="card-styles">
 
-
-        @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+        {{-- Alertas / Flash messages --}}
+        @include('alerts');
 
 
         <div class="card-style-3 mb-30">
             <div class="card-content">
-                <form action="{{route('products.store', $product ?? null)}}" method="POST">
+
+                {{-- Product Form --}}
+                <form action="{{ route('products.store', $product ?? null) }}" method="POST">
                     @csrf
+
+                    {{-- Name --}}
                     <div class="row g-3 align-items-center mb-2">
                         <div class="col-2"><label for="name">Nome: </label></div>
                         <div class="col"><input class="form-control" type="text"
                                 value="{{ $product->name ?? '' }}" name="name"></div>
                     </div>
+
+                    {{-- Price --}}
                     <div class="row g-3 align-items-center mb-2">
                         <div class="col-2"><label for="price">Preço: </label></div>
                         <div class="col"><input class="form-control" type="number" step="0.1" min="0.1"
                                 max="999999.99" value="{{ $product->price ?? '' }}" name="price"></div>
                     </div>
+
+                    {{-- Description TextArea --}}
                     <div class="row g-3 align-items-center mb-2">
                         <div class="col-2"><label for="description">Descrição: </label></div>
                         <div class="col"><textarea class="form-control"
                                 name="description">{{ $product->description ?? '' }}</textarea></div>
                     </div>
+
+                    {{-- Tags Select --}}
                     <div class="row g-3 align-items-center mb-2">
                         <div class="col-2"><label for="description">Tags: </label></div>
                         <div class="col">
-                            <select class="form-select px-1 py-2" name="tags[]" multiple aria-label="Tags"
-                                name="tags">
+                            <select class="form-select px-1 py-2" name="tags[]" multiple aria-label="Tags" name="tags">
                                 @foreach ($tags as $tag)
                                     <option class="d-inline p-1 mx-1 border rounded" @if (isset($product) && $product->tags->contains($tag)) selected @endif
                                         value="{{ $tag->id }}" style="cursor: pointer">#{{ $tag->name }}</option>
@@ -74,6 +72,7 @@
                         </div>
                     </div>
 
+                    {{-- Actio Buttons --}}
                     <div class="w-100 text-end">
                         <button type="submit" class="btn btn-success">Gravar</button>
                         @if ($product) <button type="button" class="btn btn-danger"onclick="document.getElementById('delete-form').submit();">Excluir</button> @endif
@@ -81,12 +80,14 @@
 
                 </form>
 
+                {{-- Delete Form --}}
                 @if ($product)
                     <form id="delete-form" action="{{ route('products.destroy', $product) }}" method="POST">
                         @csrf
                         @method('DELETE')
                     </form>
                 @endif
+
             </div>
         </div>
     </div>

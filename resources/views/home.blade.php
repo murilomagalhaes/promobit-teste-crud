@@ -9,13 +9,12 @@
                     <h2>{{ __('Dashboard') }}</h2>
                 </div>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
     <!-- ========== title-wrapper end ========== -->
 
     <div class="row">
+        {{-- Tags Count --}}
         <div class="col-lg-4">
             <div class="card-styles">
                 <div class="card-style-3 mb-30">
@@ -29,13 +28,15 @@
                                     d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
                             </svg>
                         </span>
-                        <span> {{ $tags_qty }} <a href="{{route('tags.index')}}"> {{ Str::plural('Tag', 2) }} </a> </span>
+                        <span> {{ $tags_qty }} <a href="{{ route('tags.index') }}"> {{ Str::plural('Tag', 2) }} </a>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-4">
+            {{-- Products Count  --}}
             <div class="card-styles">
                 <div class="card-style-3 mb-30">
                     <div class="card-content d-flex align-items-center justify-content-between">
@@ -46,7 +47,8 @@
                                     d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                             </svg>
                         </span>
-                        <span> {{ $products_qty }} <a href="{{route('products.index')}}"> {{ Str::plural('Produto', 2) }} </a> </span>
+                        <span> {{ $products_qty }} <a href="{{ route('products.index') }}">
+                                {{ Str::plural('Produto', 2) }} </a> </span>
                     </div>
                 </div>
             </div>
