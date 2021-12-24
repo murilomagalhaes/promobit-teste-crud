@@ -27,6 +27,7 @@ Agora será necessário criar um arquivo `.env ` de acordo com o `.env.example`,
 
 *Obs: A Estrutura das tabelas requeridas para o teste já estão inclusas nas migrations. Os statements no repositório do teste foram copiados e colados.*
 
+
 # Acessando a Aplicação
 Para acessar a aplicação, basta executar `php artisan serve` para subi-la usando o server nativo do php/laravel. E depois, acesse `http://localhost:8000/` no seu browser favorito.
 
