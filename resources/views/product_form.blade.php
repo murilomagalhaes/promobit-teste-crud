@@ -46,7 +46,7 @@
                     {{-- Price --}}
                     <div class="row g-3 align-items-center mb-2">
                         <div class="col-2"><label for="price">Preço: </label></div>
-                        <div class="col"><input class="form-control" type="number" step="0.1" min="0.1"
+                        <div class="col"><input class="form-control" type="number" step="0.01" min="0.1"
                                 max="999999.99" value="{{ $product->price ?? '' }}" name="price"></div>
                     </div>
 

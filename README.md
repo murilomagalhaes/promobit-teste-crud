@@ -5,6 +5,11 @@ Projeto criado como teste no processo seletivo para Dev PHP Jr na Promobit.
 Repo orignial: 
 [teste-cadastro-produtos](https://github.com/Promobit/teste-cadastro-produtos)
 
+**Projeto hospedado no Heroku!!**
+[promobit-crud.herokuapp.com](http://promobit-crud.herokuapp.com/)
+- Email: admin@promobit.com
+- Senha: admin
+
 ## Principais Techs Utilizadas
 - PHP/Laravel
 - Bootstrap 5
@@ -33,6 +38,7 @@ Para acessar a aplicação, basta executar `php artisan serve` para subi-la usan
 
 # Credenciais
 Ao acessar a aplicação, será necessário realizar a autenticação com as seguintes credenciais
+
 - Email: admin@promobit.com
 - Senha: admin
 
