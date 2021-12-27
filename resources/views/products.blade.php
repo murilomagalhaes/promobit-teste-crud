@@ -48,54 +48,55 @@
             <div class="card-content">
 
                 {{-- Product Listing --}}
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Preço</th>
-                            <th>Tags</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($products as $product)
+                <div class="table-responsive-sm w-100 mx-0">
+                    <table class="table mx-0">
+                        <thead>
                             <tr>
-                                <td>{{ $product->id }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->price }}</td>
-                                <td>
-                                    <span class="d-flex align-items-center">
-                                        @if ($product->tags->count())
-                                            @foreach ($product->tags as $tag)
-                                                <a href="{{ route('tags.form', $tag) }}" title="{{ $tag->name }}"
-                                                    class="m-1"> <span
-                                                        class="badge bg-primary">#{{ $tag->name }}</span> </a>
-                                            @endforeach
-                                        @endif
-                                    </span>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <a href="{{ route('products.form', $product->id) }}"
-                                        class="btn text-primary float-end" title="Ver/Editar">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path
-                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                            <path fill-rule="evenodd"
-                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                        </svg>
-                                    </a>
-                                </td>
+                                <th scope="col">Código</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col">Tags</th>
+                                <th scope="col"></th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($products as $product)
+                                <tr>
+                                    <th scope="row">{{ $product->id }}</th>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->price }}</td>
+                                    <td>
+                                        <span class="d-flex align-items-center">
+                                            @if ($product->tags->count())
+                                                @foreach ($product->tags as $tag)
+                                                    <a href="{{ route('tags.form', $tag) }}" title="{{ $tag->name }}"
+                                                        class="m-1"> <span
+                                                            class="badge bg-primary">#{{ $tag->name }}</span> </a>
+                                                @endforeach
+                                            @endif
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('products.form', $product->id) }}"
+                                            class="btn text-primary float-end" title="Ver/Editar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
-                {{-- Pagination --}}
-                <div class="mt-2 w-100 d-flex justify-content-end">
-                    {{ $products->links() }}
+                    {{-- Pagination --}}
+                    <div class="mt-2 w-100 d-flex justify-content-end">
+                        {{ $products->links() }}
+                    </div>
                 </div>
             </div>
 

@@ -31,18 +31,18 @@
         {{-- Tag Form --}}
         <div class="card-style-3 mb-30">
             <div class="card-content">
-                <div class="d-flex">
-                    <form action="{{ route('tags.store', $tag ?? null) }}" class="d-flex me-2 w-100" method="POST">
+                <div class="row">
+                    <form action="{{ route('tags.store', $tag ?? null) }}" class="col-lg-12 d-flex me-2" method="POST">
                         @csrf
                         <input type="text" name="name" class="me-4 form-control" value="{{ $tag->name ?? '' }}"
                             placeholder="Tag">
                         <button class="btn btn-success">Gravar</button>
                     </form>
                     @if ($tag)
-                        <form action="{{ route('tags.destroy', $tag) }}" method="POST">
+                        <form class="col text-end" action="{{ route('tags.destroy', $tag) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger">Excluir</button>
+                            <button class="btn mt-xlg-0 mt-2 btn-danger">Excluir</button>
                         </form>
                     @endif
                 </div>

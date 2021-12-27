@@ -29,7 +29,7 @@
         @include('alerts')
 
 
-        <div class="card-style-3 mb-30">
+        <div class="card-style-3 mb-30 w-100 mx-0">
             <div class="card-content">
 
                 {{-- Product Form --}}
@@ -38,32 +38,32 @@
 
                     {{-- Name --}}
                     <div class="row g-3 align-items-center mb-2">
-                        <div class="col-2"><label for="name">Nome: </label></div>
+                        <div class="col-lg-3"><label for="name">Nome: </label></div>
                         <div class="col"><input class="form-control" type="text"
                                 value="{{ $product->name ?? '' }}" name="name"></div>
                     </div>
 
                     {{-- Price --}}
                     <div class="row g-3 align-items-center mb-2">
-                        <div class="col-2"><label for="price">Preço: </label></div>
+                        <div class="col-lg-3"><label for="price">Preço: </label></div>
                         <div class="col"><input class="form-control" type="number" step="0.01" min="0.1"
                                 max="999999.99" value="{{ $product->price ?? '' }}" name="price"></div>
                     </div>
 
                     {{-- Description TextArea --}}
                     <div class="row g-3 align-items-center mb-2">
-                        <div class="col-2"><label for="description">Descrição: </label></div>
+                        <div class="col-lg-3"><label for="description">Descrição: </label></div>
                         <div class="col"><textarea class="form-control"
                                 name="description">{{ $product->description ?? '' }}</textarea></div>
                     </div>
 
                     {{-- Tags Select --}}
                     <div class="row g-3 align-items-center mb-2">
-                        <div class="col-2"><label for="description">Tags: </label></div>
+                        <div class="col-lg-3"><label for="description">Tags: </label></div>
                         <div class="col">
                             <select class="form-select px-1 py-2" name="tags[]" multiple aria-label="Tags" name="tags">
                                 @foreach ($tags as $tag)
-                                    <option class="d-inline p-1 mx-1 border rounded" @if (isset($product) && $product->tags->contains($tag)) selected @endif
+                                    <option class="p-1 m-2 border rounded" @if (isset($product) && $product->tags->contains($tag)) selected @endif
                                         value="{{ $tag->id }}" style="cursor: pointer">#{{ $tag->name }}</option>
                                 @endforeach
                             </select>

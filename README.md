@@ -48,7 +48,7 @@ Ao acessar a aplicação, será necessário realizar a autenticação com as seg
 Para construir o relatório de relevância foi utilizado o Eloquent. Com a estrutura criada no projeto, a seguinte chamada resulta no relatório solicitado:
 
 ```php
-php TagModel::withCount('products')->orderBy('products_count', 'desc')->get();
+TagModel::withCount('products')->orderBy('products_count', 'desc')->get();
 ```
 
 *Obs: Neste caso, o orderBy 'asc' trará os menos relevantes (Com menos produtos atrelados), e 'desc' trará os mais relevantes.*

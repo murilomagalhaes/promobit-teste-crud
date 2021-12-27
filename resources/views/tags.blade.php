@@ -47,41 +47,43 @@
             <div class="card-content">
 
                 {{-- Tags Listing --}}
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Tag</th>
-                            <th>Qtd. Produtos</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($tags as $tag)
+                <div class="table-responsive-sm w-100 mx-0">
+                    <table class="table mx-0">
+                        <thead>
                             <tr>
-                                <td>{{ $tag->id }}</td>
-                                <td>{{ $tag->name }}</td>
-                                <td>{{ $tag->products->count() }}</td>
-                                <td>
-                                    <a href="{{ route('tags.form', $tag->id) }}" class="btn text-primary float-end"
-                                        title="Ver/Editar">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                            class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                                            <path fill-rule="evenodd"
-                                                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                                        </svg>
-                                    </a>
-                                </td>
+                                <th scope="col">#</th>
+                                <th scope="col">Tag</th>
+                                <th scope="col">Qtd. Produtos</th>
+                                <th scope="col"></th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($tags as $tag)
+                                <tr>
+                                    <th scope="row">{{ $tag->id }}</th>
+                                    <td>{{ $tag->name }}</td>
+                                    <td>{{ $tag->products->count() }}</td>
+                                    <td>
+                                        <a href="{{ route('tags.form', $tag->id) }}" class="btn text-primary float-end"
+                                            title="Ver/Editar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
-                {{-- Pagination --}}
-                <div class="mt-2 w-100 d-flex justify-content-end">
-                    {{ $tags->links() }}
+                    {{-- Pagination --}}
+                    <div class="mt-2 w-100 d-flex justify-content-end">
+                        {{ $tags->links() }}
+                    </div>
                 </div>
             </div>
         </div>
