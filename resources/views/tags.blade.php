@@ -51,7 +51,7 @@
                     <table class="table mx-0">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">Código</th>
                                 <th scope="col">Tag</th>
                                 <th scope="col">Qtd. Produtos</th>
                                 <th scope="col"></th>

@@ -41,27 +41,29 @@
         @if (isset($tags))
             <div class="card-style-3 mb-30">
                 <div class="card-content">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Tag</th>
-                                <th scope="col">Qtd Produtos (Relevancia)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($tags as $tag)
+                    <div class="table-responsive-sm w-100 mx-0">
+                        <table class="table mx-0">
+                            <thead>
                                 <tr>
-                                    <th scope="row">{{ $tag->id }}</th>
-                                    <td> <a href="{{ route('tags.form', $tag) }}" title="{{ $tag->name }}"
-                                            class="m-1"> <span
-                                                class="badge bg-primary">#{{ $tag->name }}</span> </a></td>
-                                    <td>{{ $tag->products_count }}</td>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Tag</th>
+                                    <th scope="col">Qtd Produtos (Relevancia)</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
+                            </thead>
+                            <tbody>
+                                @foreach ($tags as $tag)
+                                    <tr>
+                                        <th scope="row">{{ $tag->id }}</th>
+                                        <td> <a href="{{ route('tags.form', $tag) }}" title="{{ $tag->name }}"
+                                                class="m-1"> <span
+                                                    class="badge bg-primary">#{{ $tag->name }}</span> </a></td>
+                                        <td>{{ $tag->products_count }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         @endif
